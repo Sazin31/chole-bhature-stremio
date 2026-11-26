@@ -1,0 +1,48 @@
+{
+  "version": 2,
+  "functions": {
+    "api/index.js": {
+      "maxDuration": 60,
+      "memory": 1024,
+      "includeFiles": "admin_settings.json"
+    }
+  },
+  "headers": [
+    {
+      "source": "/(icon-.*|logo.png|favicon.*|sw.js)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/configure",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/(.*)/manifest.json",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/(.*)/stream/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=600, s-maxage=3600, stale-while-revalidate=86400" }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/index.js?__cb_path=/$1"
+    }
+  ]
+}
