@@ -1,0 +1,32 @@
+{
+  "name": "chole-bhature-metasorter",
+  "version": "4.5.4",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@vercel/kv": "^3.0.0",
+    "axios": "^1.20.0",
+    "cheerio": "^1.2.0",
+    "compression": "^1.8.2",
+    "crypto-js": "^4.2.0",
+    "express": "^5.2.1",
+    "node-fetch": "^2.7.0",
+    "stremio-addon-sdk": "^1.6.10"
+  },
+  "overrides": {
+    "stremio-addon-sdk": {
+      "path-to-regexp": "^0.1.13"
+    },
+    "qs": "^6.16.0",
+    "tmp": "^0.2.7",
+    "undici": "^7.29.1"
+  }
+}
